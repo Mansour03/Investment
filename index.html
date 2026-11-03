@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0d12">
+<title>استثمار</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0d12; --bg2:#12151c; --card:#161a23; --line:#262c3a;
+  --gold:#d4af37; --gold2:#f1d77a; --text:#f2efe6; --muted:#8e94a3;
+  --green:#4fd1a1; --red:#ef6b6b;
+  --p1:#d4af37; --p2:#9fb4d6; --p3:#c98a5b;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:'Cairo',system-ui,sans-serif;font-variant-numeric:lining-nums}
+body{padding-bottom:90px;background:radial-gradient(1200px 500px at 50% -10%,#1b1f2b 0%,var(--bg) 60%) no-repeat}
+.wrap{max-width:680px;margin:0 auto;padding:18px 16px}
+header{text-align:center;padding:26px 0 8px}
+header .logo{font-size:34px;font-weight:800;letter-spacing:.5px;background:linear-gradient(90deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+header .sub{color:var(--muted);font-size:13px;margin-top:2px}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5;margin:14px 0 6px}
+.card{background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.hero{text-align:center;border-color:rgba(212,175,55,.35)}
+.hero .label{color:var(--muted);font-size:13px}
+.hero .big{font-size:40px;font-weight:800;color:var(--gold2);line-height:1.2;margin:4px 0}
+.hero .row{display:flex;justify-content:center;gap:28px;margin-top:10px}
+.hero .row div{font-size:12px;color:var(--muted)}
+.hero .row b{display:block;font-size:17px;color:var(--text)}
+h2{font-size:17px;margin:0 0 12px;color:var(--gold2)}
+.partner .top{display:flex;justify-content:space-between;align-items:center}
+.partner .name{font-weight:700;font-size:17px}
+.partner .pct{font-weight:800;font-size:24px}
+.bar{height:8px;border-radius:8px;background:#0e1118;margin:10px 0;overflow:hidden;border:1px solid var(--line)}
+.bar i{display:block;height:100%;border-radius:8px}
+.kv{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);margin-top:4px}
+.kv b{color:var(--text);font-weight:600}
+label{display:block;font-size:13px;color:var(--muted);margin:12px 0 6px}
+input,select,textarea{width:100%;background:#0e1118;border:1px solid var(--line);color:var(--text);border-radius:12px;padding:13px 14px;font:inherit;font-size:16px;outline:none}
+input:focus,select:focus{border-color:var(--gold)}
+input[type=date]{direction:ltr;text-align:right}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{font:inherit;cursor:pointer;border:0}
+.btn{width:100%;margin-top:16px;padding:14px;border-radius:12px;font-weight:700;font-size:16px;color:#1a1405;background:linear-gradient(90deg,var(--gold2),var(--gold))}
+.btn:active{transform:scale(.99)}
+.btn.ghost{background:transparent;color:var(--gold2);border:1px solid var(--gold)}
+.small{font-size:12px;color:var(--muted)}
+.item{border-top:1px solid var(--line);padding:12px 0}
+.item:first-child{border-top:0}
+.item .h{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.item .t{font-weight:700}
+.amt{font-weight:800;color:var(--green);white-space:nowrap}
+.amt.cap{color:var(--gold2)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{font-size:12px;padding:5px 10px;border-radius:20px;background:#0e1118;border:1px solid var(--line)}
+.chip b{color:var(--gold2)}
+.del{background:none;color:var(--red);font-size:12px;padding:4px 0;margin-top:6px}
+.preview{border:1px dashed rgba(212,175,55,.5);border-radius:14px;padding:12px;margin-top:14px;background:rgba(212,175,55,.05)}
+.preview .r{display:flex;justify-content:space-between;padding:5px 0;font-size:14px}
+.empty{text-align:center;color:var(--muted);padding:22px 0;font-size:14px}
+nav{position:fixed;bottom:0;left:0;right:0;background:rgba(14,17,24,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;justify-content:center;padding:8px 8px calc(8px + env(safe-area-inset-bottom))}
+nav .in{display:flex;max-width:680px;width:100%;gap:6px}
+nav button{flex:1;background:none;color:var(--muted);padding:9px 4px;border-radius:12px;font-weight:600;font-size:13px}
+nav button .ic{display:block;font-size:20px;margin-bottom:2px}
+nav button.on{color:var(--gold2);background:rgba(212,175,55,.1)}
+.toast{position:fixed;top:16px;left:50%;transform:translateX(-50%);background:var(--gold);color:#1a1405;padding:10px 18px;border-radius:12px;font-weight:700;z-index:9;opacity:0;pointer-events:none;transition:.25s}
+.toast.show{opacity:1}
+.tab{display:none}.tab.on{display:block}
+/* قفل الدخول */
+.lock{display:none;position:fixed;inset:0;z-index:50;align-items:center;justify-content:center;padding:24px;background:radial-gradient(1000px 500px at 50% -10%,#1b1f2b 0%,var(--bg) 60%)}
+body.locked .lock{display:flex}
+body.locked .wrap,body.locked nav{display:none}
+.lockbox{width:100%;max-width:340px;text-align:center}
+.lockbox .logo{font-size:44px;font-weight:800;background:linear-gradient(90deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:6px}
+.lockbox input{direction:ltr;text-align:center;font-size:24px;letter-spacing:8px;margin-top:18px}
+.lockbox .err{color:var(--red);font-size:14px;min-height:20px;margin-top:10px}
+body.viewer .admin-only{display:none!important}
+.tag{display:inline-block;margin-right:6px;padding:1px 8px;border-radius:10px;font-size:11px;color:var(--gold2);border:1px solid var(--gold)}
+.tag:empty{display:none}
+</style>
+</head>
+<body class="locked">
+<div class="toast" id="toast"></div>
+<div class="lock" id="lock">
+  <div class="lockbox">
+    <div class="logo">استثمار</div>
+    <div class="small">اكتب الرقم السري للدخول</div>
+    <input id="pin" type="password" inputmode="numeric" autocomplete="off" placeholder="••••">
+    <div class="err" id="lockErr"></div>
+    <button class="btn" onclick="tryPin()">دخول</button>
+  </div>
+</div>
+<div class="wrap">
+  <header>
+    <div class="logo">استثمار</div>
+    <div class="sub">شراكة ثلاثية · الحاج صلاح · شريف · وليد<span class="tag" id="roleTag"></span></div>
+    <div class="divider"></div>
+  </header>
+
+  <!-- الرئيسية -->
+  <section class="tab on" id="tab-home">
+    <div class="card hero">
+      <div class="label">إجمالي رأس المال</div>
+      <div class="big" id="totalCap">0</div>
+      <div class="small">جنيه</div>
+      <div class="row">
+        <div>إجمالي الأرباح<b id="totalProfit">0</b></div>
+        <div>عدد المشاريع<b id="projCount">0</b></div>
+      </div>
+    </div>
+    <div id="partners"></div>
+    <div class="card">
+      <h2>نسخة احتياطية</h2>
+      <div class="small">البيانات محفوظة على هذا الموبايل فقط. صدّر نسخة وابعتها للشركاء، وهما يستوردوها عندهم.</div>
+      <div class="grid2">
+        <button class="btn ghost" onclick="exportData()">تصدير</button>
+        <button class="btn ghost" onclick="document.getElementById('imp').click()">استيراد</button>
+      </div>
+      <input type="file" id="imp" accept="application/json" hidden>
+      <button class="btn ghost" onclick="logout()">تسجيل خروج</button>
+    </div>
+  </section>
+
+  <!-- رأس المال -->
+  <section class="tab" id="tab-cap">
+    <div class="card admin-only">
+      <h2>زيادة رأس مال</h2>
+      <label>الشريك</label>
+      <select id="capPartner"></select>
+      <label>المبلغ (جنيه)</label>
+      <input id="capAmount" type="number" inputmode="decimal" placeholder="0">
+      <label>التاريخ</label>
+      <input id="capDate" type="date">
+      <label>ملاحظة (اختياري)</label>
+      <input id="capNote" type="text" placeholder="مثلاً: دخل في مشروع جديد">
+      <button class="btn" onclick="addCapital()">تسجيل الزيادة</button>
+    </div>
+    <div class="card">
+      <h2>سجل رأس المال</h2>
+      <div id="capList"></div>
+    </div>
+  </section>
+
+  <!-- الأرباح -->
+  <section class="tab" id="tab-profit">
+    <div class="card admin-only">
+      <h2>تسجيل ربح</h2>
+      <label>اسم المشروع</label>
+      <input id="prName" type="text" placeholder="اسم المشروع">
+      <div class="grid2">
+        <div><label>تاريخ البداية</label><input id="prStart" type="date"></div>
+        <div><label>تاريخ التحصيل</label><input id="prEnd" type="date"></div>
+      </div>
+      <label>مبلغ الربح (جنيه)</label>
+      <input id="prAmount" type="number" inputmode="decimal" placeholder="0">
+      <div class="preview" id="preview"><div class="small">اكتب مبلغ الربح وهيظهر التقسيم هنا</div></div>
+      <button class="btn" onclick="addProfit()">حفظ الربح</button>
+    </div>
+    <div class="card">
+      <h2>سجل الأرباح</h2>
+      <div id="profitList"></div>
+    </div>
+  </section>
+</div>
+
+<nav><div class="in">
+  <button class="on" data-t="home"><span class="ic">◈</span>الرئيسية</button>
+  <button data-t="cap"><span class="ic">＋</span>رأس المال</button>
+  <button data-t="profit"><span class="ic">★</span>الأرباح</button>
+</div></nav>
+
+<script>
+const KEY='investment_v1';
+const OPEN='1970-01-01';
+const PARTNERS=[
+  {id:'salah',name:'الحاج صلاح',color:'var(--p1)'},
+  {id:'sherif',name:'شريف',color:'var(--p2)'},
+  {id:'walid',name:'وليد',color:'var(--p3)'}
+];
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=n=>Number(n).toLocaleString('en-US',{maximumFractionDigits:2});
+const pfmt=n=>(Math.round(n*100)/100).toLocaleString('en-US',{maximumFractionDigits:2})+'%';
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const pname=id=>(PARTNERS.find(p=>p.id===id)||{}).name||id;
+
+let db={capital:[
+  {id:uid(),date:OPEN,partner:'salah',amount:325000,note:'رأس المال الافتتاحي',opening:true},
+  {id:uid(),date:OPEN,partner:'sherif',amount:175000,note:'رأس المال الافتتاحي',opening:true},
+  {id:uid(),date:OPEN,partner:'walid',amount:250000,note:'رأس المال الافتتاحي',opening:true}
+],profits:[]};
+
+function load(){try{const s=localStorage.getItem(KEY);if(s){const d=JSON.parse(s);if(d&&d.capital&&d.profits)db=d}}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(db))}catch(e){toast('تعذر الحفظ على المتصفح')}}
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
+
+function capitalAt(date){
+  const r={};PARTNERS.forEach(p=>r[p.id]=0);
+  db.capital.forEach(c=>{if(c.date<=date)r[c.partner]+=Number(c.amount)});
+  return r;
+}
+function split(amount,date){
+  const caps=capitalAt(date);
+  const total=Object.values(caps).reduce((a,b)=>a+b,0);
+  if(total<=0)return null;
+  let rows=PARTNERS.map(p=>({id:p.id,pct:caps[p.id]/total*100,amt:Math.round(amount*caps[p.id]/total*100)/100}));
+  const diff=Math.round((amount-rows.reduce((a,r)=>a+r.amt,0))*100)/100;
+  if(diff!==0){const big=rows.reduce((a,b)=>b.pct>a.pct?b:a);big.amt=Math.round((big.amt+diff)*100)/100}
+  return rows;
+}
+function duration(a,b){
+  if(!a||!b)return '';
+  const d1=new Date(a+'T00:00:00'),d2=new Date(b+'T00:00:00');
+  if(d2<d1)return '';
+  const totalDays=Math.round((d2-d1)/864e5);
+  let m=(d2.getFullYear()-d1.getFullYear())*12+d2.getMonth()-d1.getMonth();
+  if(d2.getDate()<d1.getDate())m--;
+  const anchor=new Date(d1);anchor.setMonth(anchor.getMonth()+m);
+  const days=Math.round((d2-anchor)/864e5);
+  const parts=[];
+  if(m>0)parts.push(m+' شهر');
+  if(days>0||m===0)parts.push(days+' يوم');
+  return parts.join(' و ')+' ('+fmt(totalDays)+' يوم)';
+}
+
+function render(){
+  const caps=capitalAt('9999-12-31');
+  const total=Object.values(caps).reduce((a,b)=>a+b,0);
+  const earned={};PARTNERS.forEach(p=>earned[p.id]=0);
+  let totalP=0;
+  db.profits.forEach(pr=>{totalP+=Number(pr.amount);pr.split.forEach(s=>earned[s.id]+=s.amt)});
+  $('totalCap').textContent=fmt(total);
+  $('totalProfit').textContent=fmt(totalP);
+  $('projCount').textContent=fmt(db.profits.length);
+
+  $('partners').innerHTML=PARTNERS.map(p=>{
+    const pct=total?caps[p.id]/total*100:0;
+    return `<div class="card partner">
+      <div class="top"><span class="name">${p.name}</span><span class="pct" style="color:${p.color}">${pfmt(pct)}</span></div>
+      <div class="bar"><i style="width:${pct}%;background:${p.color}"></i></div>
+      <div class="kv"><span>رأس المال</span><b>${fmt(caps[p.id])} جنيه</b></div>
+      <div class="kv"><span>إجمالي الأرباح المستلمة</span><b>${fmt(earned[p.id])} جنيه</b></div>
+    </div>`}).join('');
+
+  const sel=$('capPartner');
+  if(!sel.options.length)sel.innerHTML=PARTNERS.map(p=>`<option value="${p.id}">${p.name}</option>`).join('');
+
+  const caplist=[...db.capital].sort((a,b)=>b.date.localeCompare(a.date));
+  $('capList').innerHTML=caplist.length?caplist.map(c=>`<div class="item">
+    <div class="h"><div><div class="t">${pname(c.partner)}</div>
+    <div class="small">${c.opening?'افتتاحي':esc(c.date)}${c.note&&!c.opening?' · '+esc(c.note):''}</div></div>
+    <div class="amt cap">${fmt(c.amount)}</div></div>
+    ${c.opening?'':`<button class="del admin-only" onclick="delCap('${c.id}')">حذف</button>`}
+  </div>`).join(''):'<div class="empty">لا يوجد</div>';
+
+  const pl=[...db.profits].sort((a,b)=>b.end.localeCompare(a.end));
+  $('profitList').innerHTML=pl.length?pl.map(pr=>`<div class="item">
+    <div class="h"><div><div class="t">${esc(pr.name)}</div>
+    <div class="small">${esc(pr.start)} ← ${esc(pr.end)}</div>
+    <div class="small">المدة: ${duration(pr.start,pr.end)||'-'}</div></div>
+    <div class="amt">+${fmt(pr.amount)}</div></div>
+    <div class="chips">${pr.split.map(s=>`<span class="chip">${pname(s.id)} · <b>${pfmt(s.pct)}</b> · ${fmt(s.amt)}</span>`).join('')}</div>
+    <button class="del admin-only" onclick="delProfit('${pr.id}')">حذف</button>
+  </div>`).join(''):'<div class="empty">لا يوجد أرباح مسجلة</div>';
+
+  renderPreview();
+}
+
+function renderPreview(){
+  const amt=parseFloat($('prAmount').value);
+  const end=$('prEnd').value||today();
+  const box=$('preview');
+  if(!amt||amt<=0){box.innerHTML='<div class="small">اكتب مبلغ الربح وهيظهر التقسيم هنا</div>';return}
+  const rows=split(amt,end);
+  if(!rows){box.innerHTML='<div class="small">لا يوجد رأس مال</div>';return}
+  const d=duration($('prStart').value,$('prEnd').value);
+  box.innerHTML=rows.map(r=>`<div class="r"><span>${pname(r.id)} <span class="small">(${pfmt(r.pct)})</span></span><b style="color:var(--green)">${fmt(r.amt)} جنيه</b></div>`).join('')
+    +(d?`<div class="small" style="margin-top:6px">مدة المشروع: ${d}</div>`:'');
+}
+
+function addCapital(){
+  if(role!=='admin')return;
+  const amount=parseFloat($('capAmount').value);
+  const date=$('capDate').value||today();
+  if(!amount||amount<=0)return toast('اكتب المبلغ');
+  db.capital.push({id:uid(),date,partner:$('capPartner').value,amount,note:$('capNote').value.trim()});
+  save();$('capAmount').value='';$('capNote').value='';render();toast('تم تسجيل الزيادة');
+}
+function delCap(id){
+  if(role!=='admin')return;
+  if(!confirm('حذف الزيادة دي؟ نسب الأرباح الجديدة هتتغير.'))return;
+  db.capital=db.capital.filter(c=>c.id!==id);save();render();
+}
+function addProfit(){
+  if(role!=='admin')return;
+  const name=$('prName').value.trim();
+  const start=$('prStart').value, end=$('prEnd').value;
+  const amount=parseFloat($('prAmount').value);
+  if(!name)return toast('اكتب اسم المشروع');
+  if(!start||!end)return toast('اختار التاريخين');
+  if(end<start)return toast('تاريخ التحصيل قبل البداية');
+  if(!amount||amount<=0)return toast('اكتب مبلغ الربح');
+  const rows=split(amount,end);
+  if(!rows)return toast('لا يوجد رأس مال');
+  db.profits.push({id:uid(),name,start,end,amount,split:rows});
+  save();['prName','prStart','prEnd','prAmount'].forEach(i=>$(i).value='');
+  render();toast('تم حفظ الربح');
+}
+function delProfit(id){
+  if(role!=='admin')return;
+  if(!confirm('حذف الربح ده؟'))return;
+  db.profits=db.profits.filter(p=>p.id!==id);save();render();
+}
+
+function exportData(){
+  const blob=new Blob([JSON.stringify(db)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download='investment-backup-'+today()+'.json';a.click();
+}
+$('imp').addEventListener('change',e=>{
+  const f=e.target.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=()=>{try{
+    const d=JSON.parse(r.result);
+    if(!d.capital||!d.profits)throw 0;
+    if(!confirm('الاستيراد هيستبدل البيانات الحالية. متأكد؟'))return;
+    db=d;save();render();toast('تم الاستيراد');
+  }catch(_){toast('ملف غير صالح')}};
+  r.readAsText(f);e.target.value='';
+});
+
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.id==='tab-'+b.dataset.t));
+  window.scrollTo({top:0});
+}));
+['prAmount','prStart','prEnd'].forEach(i=>$(i).addEventListener('input',renderPreview));
+
+/* ===== الرقم السري ===== */
+const AUTH_KEY='investment_auth';
+const SALT='invest|';
+const VIEW_HASH='e4af5071a2f78be98c3a5d27305e777efdb43a5316f9a496ff45963704b06d75';   // 0258 → عرض فقط
+const ADMIN_HASH='d957b0f093a872540b42e087f3be1723534357fa1631020ad6cd1c9a82995cfc';  // 157359 → تحكم كامل
+let role='';
+const roleOf=h=>h===ADMIN_HASH?'admin':h===VIEW_HASH?'viewer':'';
+async function sha(pin){
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(SALT+pin));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+function applyRole(r){
+  role=r;
+  document.body.classList.remove('locked');
+  document.body.classList.toggle('viewer',r!=='admin');
+  $('roleTag').textContent=r==='admin'?'':'عرض فقط';
+}
+async function tryPin(){
+  const pin=$('pin').value.trim();
+  if(!pin)return;
+  try{
+    const h=await sha(pin);
+    const r=roleOf(h);
+    if(!r){$('lockErr').textContent='الرقم غير صحيح';$('pin').value='';return}
+    try{localStorage.setItem(AUTH_KEY,h)}catch(e){}
+    $('pin').value='';$('lockErr').textContent='';
+    applyRole(r);
+  }catch(e){$('lockErr').textContent='افتح الصفحة من لينك https'}
+}
+function logout(){try{localStorage.removeItem(AUTH_KEY)}catch(e){}location.reload()}
+$('pin').addEventListener('keydown',e=>{if(e.key==='Enter')tryPin()});
+(function initAuth(){
+  let h=null;try{h=localStorage.getItem(AUTH_KEY)}catch(e){}
+  const r=h?roleOf(h):'';
+  if(r)applyRole(r);
+})();
+
+load();
+$('capDate').value=today();
+render();
+</script>
+</body>
+</html>
